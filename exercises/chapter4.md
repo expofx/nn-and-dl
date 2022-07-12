@@ -1,0 +1,11 @@
+1. We've seen how to use networks with two hidden layers to approximate an arbitrary function. Can you find a proof showing that it's possible with just a single hidden layer? As a hint, try working in the case of just two input variables, and showing that: (a) it's possible to get step functions not just in the x or y directions, but in an arbitrary direction; (b) by adding up many of the constructions from part (a) it's possible to approximate a tower function which is circular in shape, rather than rectangular; (c) using these circular towers, it's possible to approximate an arbitrary function. To do part (c) it may help to use ideas from a bit later in this chapter.
+
+I'm not sure how a and b works but c makes sense since if the target function is continuous, then circular towers with smaller and smaller deltas will tend to approximate the function very well, just like a rectangular function. I think what is meant by a) and b) is that if the weights and biases aren't set so they form a particular step, then it forms a more smooth curve in the x and y directions and that can create circular shapes rather than rectangles.
+
+2. Earlier in the book we met another type of neuron known as a rectified linear unit. Explain why such neurons don't satisfy the conditions just given for universality. Find a proof of universality showing that rectified linear units are universal for computation.
+
+ReLU doesn't satisfy the condition that it is well defined as z -> inf, because ReLU is linear and goes to inf. However, ReLU is still universal because you can create a step function with 2 ReLU activations by manipulating the weights and biases of 2 neurons so that when you linearly combine them with -1 and 1 (subtract one from another), you are left with the height of the step function, just like with 1 sigmoid.
+
+3. Suppose we consider linear neurons, i.e., neurons with the activation function s(z)=z. Explain why linear neurons don't satisfy the conditions just given for universality. Show that such neurons can't be used to do universal computation.
+
+Linear neurons are neither well-defined for z -> inf or -inf. Since adding or subtracting linear functions will always result in another linear function, we cannot make a step function nor model more complex functions.
